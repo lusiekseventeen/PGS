@@ -1,0 +1,145 @@
+.text
+{
+    -fx-font-smoothing-type: gray;
+}
+.RightView
+{
+    -fx-background-color: ghostwhite;
+    -fx-alignment: top-center;
+    -fx-pref-height: 640px;
+    -fx-pref-width: 840px;
+    -fx-font-family: "HelveticaNeueLTStd-Bd";
+    -fx-spacing: 10;
+}
+
+.RightView .Header
+{
+    -fx-text-fill: #b90000;
+    -fx-font-size: 52.0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 1, 0, 1, 1);
+}
+
+.RightView .Label1
+{
+    -fx-padding: 30 0 0 0;
+}
+
+.RightView .InfoLabel
+{
+    -fx-text-fill: black;
+    -fx-font-size: 30;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 1, 0, 1, 1);
+}
+
+
+.PlateField
+{
+    -fx-max-width: 200.0px;
+    -fx-pref-width: 200.0px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 5, 0, 1, 1);
+    -fx-padding: 5px;
+    -fx-font-size: 20;
+}
+
+.MyButton
+{
+    -fx-background-radius: 20;
+    -fx-background-color: linear-gradient(to bottom right, royalblue, darkblue);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 5, 0, 1, 1);
+    -fx-text-fill: white;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 20;
+    -fx-cursor: hand;
+}
+
+.MyButton2
+{
+    -fx-background-radius: 20;
+    -fx-background-color: linear-gradient(to bottom right, red, crimson);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 5, 0, 1, 1);
+    -fx-text-fill: white;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 20;
+    -fx-cursor: hand;
+}
+
+.CarCard
+{
+    -fx-max-height: 250;
+    -fx-max-width: 400;
+    -fx-pref-height: 250;
+    -fx-pref-width: 400;
+    -fx-background-color: white;
+    -fx-background-radius: 2;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 5, 0, 1, 1);
+    -fx-spacing: 10;
+    -fx-padding: 5;
+}
+
+.CarCard .Plate
+{
+    -fx-font-size: 15;
+}
+
+.CarCard .CarName
+{
+    -fx-font-size: 29;
+}
+
+.CarCard .ColorLabel
+{
+    -fx-min-height: 30;
+    -fx-pref-width: 410;
+    -fx-min-width: 100%;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 5, 0, 1, 1);
+    -fx-border-radius: 5;
+}
+
+.CarCard .text-field
+{
+    -fx-text-fill: white;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 19;
+    -fx-text-fill: black;
+}
+
+.CarCard .MyButton
+{
+    -fx-pref-height: 35;
+    -fx-pref-width: 100;
+}
+
+.CarCard .MyButton2
+{
+    -fx-pref-height: 35;
+    -fx-pref-width: 70;
+}
+
+#returnCard
+{
+    -fx-max-height: 200;
+}
+
+#listView
+{
+    -fx-spacing: 0;
+}
+
+#carsView
+{
+    -fx-spacing: 0;
+}
+#historyView
+{
+    -fx-spacing: 0;
+}
+
+#datesLabel
+{
+    -fx-background-color: linear-gradient(to bottom right, crimson, red);
+}
+
+#newCarBtn
+{
+    -fx-background-color: linear-gradient(to bottom right, green, darkgreen);
+}

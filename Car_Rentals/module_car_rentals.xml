@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_car_rentals" default="compile.module.car_rentals">
+  <dirname property="module.car_rentals.basedir" file="${ant.file.module_car_rentals}"/>
+  
+  <property name="module.jdk.home.car_rentals" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.car_rentals" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.car_rentals" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.car_rentals" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="car_rentals.output.dir" value="${module.car_rentals.basedir}/out/production/Car_Rentals"/>
+  <property name="car_rentals.testoutput.dir" value="${module.car_rentals.basedir}/out/test/Car_Rentals"/>
+  
+  <path id="car_rentals.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="car_rentals.module.production.classpath">
+    <path refid="${module.jdk.classpath.car_rentals}"/>
+  </path>
+  
+  <path id="car_rentals.runtime.production.module.classpath">
+    <pathelement location="${car_rentals.output.dir}"/>
+  </path>
+  
+  <path id="car_rentals.module.classpath">
+    <path refid="${module.jdk.classpath.car_rentals}"/>
+    <pathelement location="${car_rentals.output.dir}"/>
+  </path>
+  
+  <path id="car_rentals.runtime.module.classpath">
+    <pathelement location="${car_rentals.testoutput.dir}"/>
+    <pathelement location="${car_rentals.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.car_rentals">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.car_rentals">
+    <patternset refid="excluded.from.module.car_rentals"/>
+  </patternset>
+  
+  <path id="car_rentals.module.sourcepath">
+    <dirset dir="${module.car_rentals.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.car_rentals" depends="compile.module.car_rentals.production,compile.module.car_rentals.tests" description="Compile module Car_Rentals"/>
+  
+  <target name="compile.module.car_rentals.production" depends="register.custom.compilers" description="Compile module Car_Rentals; production classes">
+    <mkdir dir="${car_rentals.output.dir}"/>
+    <javac2 destdir="${car_rentals.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.car_rentals}/javac">
+      <compilerarg line="${compiler.args.car_rentals}"/>
+      <bootclasspath refid="car_rentals.module.bootclasspath"/>
+      <classpath refid="car_rentals.module.production.classpath"/>
+      <src refid="car_rentals.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.car_rentals"/>
+    </javac2>
+    
+    <copy todir="${car_rentals.output.dir}">
+      <fileset dir="${module.car_rentals.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.car_rentals.tests" depends="register.custom.compilers,compile.module.car_rentals.production" description="compile module Car_Rentals; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.car_rentals" description="cleanup module">
+    <delete dir="${car_rentals.output.dir}"/>
+    <delete dir="${car_rentals.testoutput.dir}"/>
+  </target>
+</project>
