@@ -360,7 +360,6 @@ public class Controller {
 
     public void drawCarsView()
     {
-        System.out.println("a"+carsList.getChildren().size());
         if (carsList.getChildren().size() > 1)
         {
             if(carsList.getChildren().size() == 2)
