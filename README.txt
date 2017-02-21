@@ -1,3 +1,5 @@
+@Łukasz Szymczuk
+
 <IDEA Project - kompilacja w IDE :( >
 
 
