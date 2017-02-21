@@ -1,3 +1,6 @@
+<IDEA Project - kompilacja w IDE :( >
+
+
 #PGS Zadanie rekrutacyjne#
 
 Technologie:
