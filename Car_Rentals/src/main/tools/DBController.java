@@ -2,11 +2,15 @@ package main.tools;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
+import main.Main;
 import main.components.Car;
 import main.components.CarCard;
 import main.components.DisabledRange;
 import main.components.Rental;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -16,6 +20,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import static java.time.LocalDate.now;
+import static jdk.nashorn.internal.objects.NativeString.substring;
 
 /**
  * Created by Łukasz Szymczuk on 18.02.2017.
@@ -24,6 +29,7 @@ public class DBController
 {
     private Connection connection;
     private Statement statment;
+    String path1;
 
     public DBController()
     {
@@ -31,10 +37,16 @@ public class DBController
     }
 
     public Connection createConnection(String baza) {
+        try {
+            path1 = new String(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
+            path1 = path1.substring(0,path1.length()-15);
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
         Connection conn = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            conn = DriverManager.getConnection("jdbc:sqlite:"+baza+".db");
+            conn = DriverManager.getConnection("jdbc:sqlite:"+path1+baza+".db");
         } catch (Exception e) {
             alert("Error while connecting: \n" + e.getMessage());
             return null;
